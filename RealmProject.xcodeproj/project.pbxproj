@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EA0644E25F10A8300559C8A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0644D25F10A8300559C8A /* ListViewController.swift */; };
+		8EA0645125F10AB800559C8A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0645025F10AB800559C8A /* Category.swift */; };
+		8EA0645425F10AC500559C8A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0645325F10AC500559C8A /* List.swift */; };
 		8EC7C04825F1074100460996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7C04725F1074100460996 /* AppDelegate.swift */; };
 		8EC7C04A25F1074100460996 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7C04925F1074100460996 /* SceneDelegate.swift */; };
-		8EC7C04C25F1074100460996 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7C04B25F1074100460996 /* ViewController.swift */; };
+		8EC7C04C25F1074100460996 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7C04B25F1074100460996 /* CategoryViewController.swift */; };
 		8EC7C04F25F1074100460996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC7C04D25F1074100460996 /* Main.storyboard */; };
 		8EC7C05125F1074200460996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC7C05025F1074200460996 /* Assets.xcassets */; };
 		8EC7C05425F1074200460996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC7C05225F1074200460996 /* LaunchScreen.storyboard */; };
@@ -20,10 +23,13 @@
 		310AFF6C346F85EB5F683A06 /* Pods-RealmProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmProject.debug.xcconfig"; path = "Target Support Files/Pods-RealmProject/Pods-RealmProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4461B9604573CA7FA51DF09F /* Pods-RealmProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmProject.release.xcconfig"; path = "Target Support Files/Pods-RealmProject/Pods-RealmProject.release.xcconfig"; sourceTree = "<group>"; };
 		7FEB719D3A1A4ACB5683E246 /* Pods_RealmProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EA0644D25F10A8300559C8A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8EA0645025F10AB800559C8A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8EA0645325F10AC500559C8A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		8EC7C04425F1074100460996 /* RealmProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC7C04725F1074100460996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC7C04925F1074100460996 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8EC7C04B25F1074100460996 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8EC7C04B25F1074100460996 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8EC7C04E25F1074100460996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EC7C05025F1074200460996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EC7C05325F1074200460996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,8 +54,33 @@
 				310AFF6C346F85EB5F683A06 /* Pods-RealmProject.debug.xcconfig */,
 				4461B9604573CA7FA51DF09F /* Pods-RealmProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8EA0644725F109C300559C8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8EC7C04B25F1074100460996 /* CategoryViewController.swift */,
+				8EA0644D25F10A8300559C8A /* ListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8EA0644825F109F100559C8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EC7C04D25F1074100460996 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8EA0644925F109F900559C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8EA0645025F10AB800559C8A /* Category.swift */,
+				8EA0645325F10AC500559C8A /* List.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8EC7C03B25F1074100460996 = {
@@ -73,10 +104,11 @@
 		8EC7C04625F1074100460996 /* RealmProject */ = {
 			isa = PBXGroup;
 			children = (
+				8EA0644925F109F900559C8A /* Model */,
+				8EA0644825F109F100559C8A /* View */,
+				8EA0644725F109C300559C8A /* Controller */,
 				8EC7C04725F1074100460996 /* AppDelegate.swift */,
 				8EC7C04925F1074100460996 /* SceneDelegate.swift */,
-				8EC7C04B25F1074100460996 /* ViewController.swift */,
-				8EC7C04D25F1074100460996 /* Main.storyboard */,
 				8EC7C05025F1074200460996 /* Assets.xcassets */,
 				8EC7C05225F1074200460996 /* LaunchScreen.storyboard */,
 				8EC7C05525F1074200460996 /* Info.plist */,
@@ -188,9 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EC7C04C25F1074100460996 /* ViewController.swift in Sources */,
+				8EC7C04C25F1074100460996 /* CategoryViewController.swift in Sources */,
+				8EA0645125F10AB800559C8A /* Category.swift in Sources */,
 				8EC7C04825F1074100460996 /* AppDelegate.swift in Sources */,
+				8EA0644E25F10A8300559C8A /* ListViewController.swift in Sources */,
 				8EC7C04A25F1074100460996 /* SceneDelegate.swift in Sources */,
+				8EA0645425F10AC500559C8A /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
