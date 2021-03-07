@@ -12,6 +12,13 @@ class ListViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
     
+    var selectedCategory:Category?{
+        didSet{
+            loadData()
+        }
+    }
+    
+    
     var listArr:Results<List>?
     
     
@@ -22,19 +29,19 @@ class ListViewController: UIViewController {
         listTableView.delegate = self
         listTableView.dataSource = self
         
-        loadData()
     }
     
     @IBAction func saveDataPressed(_ sender: UIButton) {
         
-        let listObj = List()
-        listObj.title = "Apples"
-        listObj.finished = false
-        
         do {
             let realm =  try Realm()
             try realm.write{
-                realm.add(listObj)
+                if let catObj = selectedCategory{
+                    let listObj = List()
+                    listObj.title = "Apples"
+                    listObj.finished = false
+                    catObj.lists.append(listObj)
+                }
             }
            
             listTableView.reloadData()
@@ -49,11 +56,14 @@ class ListViewController: UIViewController {
         
         do {
             let realm = try Realm()
-            for listObj in realm.objects(List.self) {
-                try realm.write{
-                    listObj.finished = true
+            if let listArray = listArr {
+                for listObj in  listArray {
+                    try realm.write{
+                        listObj.finished = true
+                    }
                 }
             }
+            
             listTableView.reloadData()
         } catch {
             print("Error:\(error)")
@@ -82,15 +92,12 @@ class ListViewController: UIViewController {
     
 // This method should be called atleast once for realm to start listening for changes
     func loadData() {
-        do {
-            let realm = try Realm ()
-            
-            //listArr starts getting updated dynamically after executing the below line 'once'
-            listArr = realm.objects(List.self)
-            
+        
+        //listArr starts getting updated dynamically after executing the below line 'once'
+        listArr = selectedCategory?.lists.sorted(byKeyPath: "title", ascending: true)
+        
+        if listTableView != nil {
             listTableView.reloadData()
-        } catch  {
-            print("Error:\(error)")
         }
     }
     

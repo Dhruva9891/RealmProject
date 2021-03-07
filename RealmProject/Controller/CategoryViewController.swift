@@ -121,5 +121,14 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource{
         performSegue(withIdentifier: "toListView", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toListView" {
+            let listVC = segue.destination as! ListViewController
+            if let index = categoryTableView.indexPathForSelectedRow?.row {
+                listVC.selectedCategory = categoryArray?[index]
+            }
+        }
+    }
+    
 }
 

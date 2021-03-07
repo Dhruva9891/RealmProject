@@ -11,4 +11,6 @@ import RealmSwift
 class List: Object {
     @objc dynamic var title:String = ""
     @objc dynamic var finished:Bool = false
+    var parentCategory = LinkingObjects(fromType: Category.self, property: "lists")
+    
 }
