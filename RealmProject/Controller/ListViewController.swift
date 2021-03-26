@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ListViewController: UIViewController {
+class ListViewController: SwipeViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var listTableView: UITableView!
     
@@ -25,6 +25,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        listTableView.rowHeight = 90.0
         // Do any additional setup after loading the view.
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -101,15 +102,32 @@ class ListViewController: UIViewController {
         }
     }
     
-}
-
-extension ListViewController:UITableViewDelegate,UITableViewDataSource{
+    //Mark - SwipeDelegate Method
+    override func deleteObj(indexPath: IndexPath){
+        do {
+            let realm = try Realm()
+            
+            if let listObj = listArr?[indexPath.row] {
+                try realm.write {
+                    realm.delete(listObj)
+                }
+            }
+            DispatchQueue.main.async {
+                self.listTableView.reloadData()
+            }
+            
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    //Mark - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listArr?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let listObj = listArr?[indexPath.row] {
             cell.textLabel?.text = listObj.title
             cell.detailTextLabel?.text = String(listObj.finished)
